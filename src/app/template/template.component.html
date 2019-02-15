@@ -1,0 +1,10 @@
+<form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm)">
+  <div>姓名：<input ngModel name="name" type="text"></div>
+  <div>电话：<input ngModel name="phone" type="text"></div>
+  <div ngModelGroup="password">
+    <div>密码：<input ngModel name="pwd" type="text"></div>
+    <div>确认密码：<input ngModel name="confirmpwd" type="text"></div>
+  </div>
+  <button>提交</button>
+  <div>{{heroForm.value | json}}</div>
+</form>

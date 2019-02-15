@@ -7,15 +7,22 @@ import {ProductService} from "./share/product-service.service";
 import { Product2Component } from "./product2/product2.component";
 import {LoggerService} from "./share/logger.service";
 import {AnotherProductService} from "./share/another-product-service.service";
+import { TemplateComponent } from "./template/template.component";
+import { ReactiveComponent } from "./reactive/reactive.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [ /*//申明*/
     AppComponent,
     Product1Component,
     Product2Component,
+    TemplateComponent,
+    ReactiveComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   /*providers: [{provide: ProductService, useFactory: (log: LoggerService, is_DEV) => {
     if (is_DEV) {

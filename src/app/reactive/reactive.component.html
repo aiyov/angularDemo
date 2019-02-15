@@ -1,0 +1,18 @@
+<form [formGroup]="myForm" (submit)="onSubmit()">
+  <div>姓名：<input formControlName="name" type="text"></div>
+  <div>电话：<input name="phone" type="text"></div>
+  <div formGroupName="password">
+    <div>密码：<input formControlName="pwd" type="text"></div>
+    <div>确认密码：<input name="confirmpwd" formControlName="cpwd" type="text"></div>
+  </div>
+  <ul formArrayName="emaillists">
+    <li *ngFor="let email of myForm.get('emaillists').controls; let i = index">
+      <div>邮箱{{i+1}}</div>
+      <input type="text" [formControlName]="i" />
+    </li>
+    <li>
+      <div (click)="addEmail()">添加邮箱</div>
+    </li>
+  </ul>
+  <button>提交</button>
+</form>
