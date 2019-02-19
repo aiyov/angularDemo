@@ -7,12 +7,9 @@ export function nameValidator(nameRe: RegExp): ValidatorFn {
   };
 }
 
-export function pwdValidator(group: FormGroup): ValidatorFn {
-  return ((control: AbstractControl): {[key: string]: any} | null => {
+export function pwdValidator(group: FormGroup): {[key: string]: any} | null {
     const password: FormControl = group.get("pwd") as FormControl;
     const cpassword: FormControl = group.get("cpwd") as FormControl;
     const valid: boolean = (password.value === cpassword.value);
-    console.log(valid)
-    return valid ? {"equal": true} : null;
-  })();
+    return valid ? {equal: true} : null;
 }

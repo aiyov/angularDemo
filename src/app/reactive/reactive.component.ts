@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {nameValidator, pwdValidator} from "../../validator/name-validator";
 
 @Component({
@@ -13,10 +13,10 @@ export class ReactiveComponent implements OnInit {
     this.myForm = fb.group({
       name: new FormControl("aiyov", [nameValidator(/[0-9]/g)]),
       password : fb.group({
-        pwd: new FormControl("123456"),
+        pwd: new FormControl("123456", Validators.minLength(3)),
         cpwd: new FormControl("12345")
       }, {
-        validator: pwdValidator()
+        validator: pwdValidator
       }),
       emaillists: new FormArray([
         new FormControl("a@a.com")
@@ -44,5 +44,6 @@ export class ReactiveComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.myForm.value);
+    console.log(this.myForm.get("password").get('pwd').errors);
   }
 }

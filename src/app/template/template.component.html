@@ -1,5 +1,5 @@
 <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm)">
-  <div>姓名：<input ngModel name="name" type="text"></div>
+  <div>姓名：<input ngModel name="name" appNameValidator type="text"></div>
   <div>电话：<input ngModel name="phone" type="text"></div>
   <div ngModelGroup="password">
     <div>密码：<input ngModel name="pwd" type="text"></div>
